@@ -4,15 +4,25 @@
 using namespace std;
 
 double totalReturn(double dailyPrices[], int size) {
-    return dailyPrices[size - 1] - dailyPrices[0];
+    double startPrice = dailyPrices[0];
+    double endPrice = dailyPrices[size - 1];
+
+    return endPrice - startPrice;
 }
 
 double returnOnInvestment(double dailyPrices[], int size) {
-    return ((dailyPrices[size - 1] - dailyPrices[0]) / dailyPrices[0]) * 100;
+    double startPrice = dailyPrices[0];
+    double endPrice = dailyPrices[size - 1];
+
+    return ((endPrice - startPrice) / startPrice) * 100;
 }
 
 double compoundAnnualGrowthRate(double dailyPrices[], int size) {
-    return pow((dailyPrices[size - 1] / dailyPrices[0]), 1.0 / double(size)) - 1;
+    double startPrice = dailyPrices[0];
+    double endPrice = dailyPrices[size - 1];
+    double timeInYears = double(size) / 365;
+
+    return pow(endPrice / startPrice, 1 / timeInYears) - 1;
 }
 
 int main() {
