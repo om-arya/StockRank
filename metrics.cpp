@@ -26,7 +26,7 @@ double compoundAnnualGrowthRate(double dailyPrices[], int size) {
 }
 
 int main() {
-    double dailyPrices[5] = {174.52, 176.61, 177.43, 178.45, 176.63};
+    double dailyPrices[6] = {174.52, 176.61, 177.43, 178.45, 176.63};
     int size = sizeof(dailyPrices) / sizeof(dailyPrices[0]);
 
     double total = totalReturn(dailyPrices, size);
