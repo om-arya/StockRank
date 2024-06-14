@@ -111,7 +111,7 @@ INCS_Release := \
 	-I/Users/omarya/Projects/StockRank/node_modules/node-addon-api
 
 OBJS := \
-	$(obj).target/$(TARGET)/src/addon.o
+	$(obj).target/$(TARGET)/src/metrics.o
 
 # Add to the list of files we specially track dependencies for.
 all_deps += $(OBJS)

@@ -10,3 +10,6 @@ metrics
 
 # Debugging symbols
 metrics.dSYM/
+
+# GitHub stuff
+.gitattributes

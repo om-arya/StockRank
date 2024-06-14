@@ -36,7 +36,7 @@ new Chart(graph, {
 });
 */
 
-const addon = require('../build/Release/addon');
+const metrics = require('../build/Release/addon');
 
-const result = addon.add(5, 3);
+const result = metrics.add(5, 3);
 console.log(`The result of the addition is: ${result}`);

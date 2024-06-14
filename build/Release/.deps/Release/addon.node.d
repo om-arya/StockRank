@@ -1,1 +1,1 @@
-cmd_Release/addon.node := c++ -bundle -undefined dynamic_lookup -Wl,-search_paths_first -mmacosx-version-min=10.15 -arch arm64 -L./Release -stdlib=libc++  -o Release/addon.node Release/obj.target/addon/src/addon.o Release/nothing.a 
+cmd_Release/addon.node := c++ -bundle -undefined dynamic_lookup -Wl,-search_paths_first -mmacosx-version-min=10.15 -arch arm64 -L./Release -stdlib=libc++  -o Release/addon.node Release/obj.target/addon/src/metrics.o Release/nothing.a 
