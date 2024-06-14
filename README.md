@@ -9,7 +9,7 @@ A stock performance comparison tool, analyzing metrics between different compani
 * [![CSS3][CSS.com]][CSS-url]
 
 <!-- MARKDOWN LINKS & IMAGES -->
-[C++.com]: https://img.shields.io/badge/-C++-blue?logo=cplusplus
+[C++.com]: https://img.shields.io/badge/C++-00599C?style=flat-square&logo=C%2B%2B&logoColor=white
 [C++-url]: https://cplusplus.com/
 [JS.js]: https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E
 [JS-url]: https://JavaScript.com/
