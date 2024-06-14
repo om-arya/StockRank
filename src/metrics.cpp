@@ -12,23 +12,34 @@ using namespace std;
 Napi::Value Add(const Napi::CallbackInfo& info) {
     Napi::Env env = info.Env();
 
-    if (info.Length() < 2) {
-        Napi::TypeError::New(env, "Expected two arguments").ThrowAsJavaScriptException();
+    if (!info[0].IsArray() || !info[1].IsNumber()) {
+        Napi::TypeError::New(env, "Expected first argument to be an array and second argument to be a number").ThrowAsJavaScriptException();
         return env.Null();
     }
 
-    if (!info[0].IsNumber() || !info[1].IsNumber()) {
-        Napi::TypeError::New(env, "Expected arguments to be numbers").ThrowAsJavaScriptException();
-        return env.Null();
+    Napi::Array inputArray = info[0].As<Napi::Array>();
+    double number = info[1].As<Napi::Number>().DoubleValue();
+    uint32_t length = inputArray.Length();
+
+    std::vector<double> result;
+    result.reserve(length);
+
+    for (uint32_t i = 0; i < length; i++) {
+        Napi::Value element = inputArray[i];
+        if (!element.IsNumber()) {
+            Napi::TypeError::New(env, "Array elements must be numbers").ThrowAsJavaScriptException();
+            return env.Null();
+        }
+        double value = element.As<Napi::Number>().DoubleValue();
+        result.push_back(value + number); // perform the computation
     }
 
-    // Parse the arguments from the JavaScript
-    double arg0 = info[0].As<Napi::Number>().DoubleValue();
-    double arg1 = info[1].As<Napi::Number>().DoubleValue();
+    Napi::Array resultArray = Napi::Array::New(env, length);
+    for (uint32_t i = 0; i < length; i++) {
+        resultArray[i] = Napi::Number::New(env, result[i]);
+    }
 
-    double sum = arg0 - arg1; // perform the computation
-
-    return Napi::Number::New(env, sum); // the result goes back to JavaScript
+    return resultArray; // the result goes back to JavaScript
 }
 
 Napi::Object Init(Napi::Env env, Napi::Object exports) { // initialize the module

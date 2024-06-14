@@ -38,5 +38,8 @@ new Chart(graph, {
 
 const metrics = require('../build/Release/addon');
 
-const result = metrics.add(5, 3);
+const dailyPrices = [1.0, 2.0, 3.0];
+const days = dailyPrices.length;
+
+const result = metrics.add(dailyPrices, days);
 console.log(`The result of the addition is: ${result}`);
