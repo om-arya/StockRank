@@ -1,15 +1,23 @@
-/*
-const csv_file = File('foo.csv');
-csv_file.open('r');
-csv_file.encoding = 'utf-8';
+import { computeMetrics } from '../build/Release/addon';
 
-let data = csv_file.read().split('/\r\n|\n/'); // split by lines
-csv_file.close();
-
-for (const row in data) {
-    data[row].split(','); // split all lines by commas
+run();
+async function run() {
+  const data = await import("./AAPL.csv");
+  process(data);
 }
-*/
+
+//fetch('./data/AAPL.csv')
+//.then(aaplData => aaplData.text())
+//.then(data => process(data))
+
+function process(data) {
+  data = data.replaceAll("\r", "").split("\n").join(",").split(",");
+  const aaplDates = data.filter((_, i) => i % 2 == 0);
+  const aaplPrices = data.filter((_, i) => i % 2 != 0);
+  const result = computeMetrics(aaplPrices);
+  console.log(aaplPrices);
+  console.log(`The result of the addition is: ${result}`);
+}
 
 /*
 const graph = document.getElementById('graph');
@@ -35,11 +43,3 @@ new Chart(graph, {
   }
 });
 */
-
-const metrics = require('../build/Release/addon');
-
-const dailyPrices = [1.0, 2.0, 3.0];
-const days = dailyPrices.length;
-
-const result = metrics.add(dailyPrices, days);
-console.log(`The result of the addition is: ${result}`);
