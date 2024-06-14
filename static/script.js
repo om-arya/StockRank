@@ -11,6 +11,7 @@ for (const row in data) {
 }
 */
 
+/*
 const graph = document.getElementById('graph');
 
 const xValues = [50,60,70,80,90,100,110,120,130,140,150];
@@ -33,3 +34,9 @@ new Chart(graph, {
     maintainAspectRatio: true,
   }
 });
+*/
+
+const addon = require('../build/Release/addon');
+
+const result = addon.add(5, 3);
+console.log(`The result of the addition is: ${result}`);

@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <title>StockRank</title>
+</head>
+
+<body>
+    <!-- LEFT SIDE -->
+    <div class="left-side">
+        <div class="stock-buttons-container">
+            <a>AAPL</a>
+            <a>AMZN</a>
+            <a>CRM</a>
+            <a>GOOGL</a>
+            <a>IBM</a>
+            <a>INTC</a>
+            <a>META</a>
+            <a>MSFT</a>
+            <a>NFLX</a>
+            <a>NVDA</a>
+            <a>ORCL</a>
+            <a>TSLA</a>
+        </div>
+        <div class="date-container">
+            <p>From</p>
+            <input class="date-box" type="date" min="2010-01-03" max="2022-12-28">
+            <p>To</p>
+            <input class="date-box" type="date" min="2010-01-03" max="2022-12-28">
+        </div>
+        <div class="graph-container">
+            <canvas id="graph" width="700" height="400"></canvas>
+        </div>
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="right-side">
+        <div class="stats">
+            <p>ROI: $20.71</p>
+        </div>
+    </div>
+
+    <!-- SCRIPT -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

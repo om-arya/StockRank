@@ -1,0 +1,7 @@
+{
+  "name": "stockrank",
+  "main": "index.js",
+  "dependencies": {
+    "node-addon-api": "^8.0.0"
+  }
+}
